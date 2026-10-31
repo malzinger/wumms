@@ -14,20 +14,23 @@ interface ToggleText {
 }
 
 const de = {
-  claim: 'Game Feel, Schalter für Schalter.',
+  claim: 'Game Feel, Schalter für Schalter',
   intro:
-    'Ein Schlag auf eine Puppe. Jeder Schalter rechts ist ein Trick, mit dem Spiele einen Treffer spürbar machen. Erst alles aus, dann einzeln dazuschalten.',
+    'Ein Schlag auf einen Sandsack. Jeder Schalter rechts ist ein Trick, mit dem Spiele einen Treffer spürbar machen. Erst alles aus, dann einzeln dazuschalten.',
+  stageLabel: 'Boxer und Sandsack',
   punch: 'Schlagen',
   hint: 'Leertaste oder Klick auf die Bühne',
   hits: (n: number) => `${n} Treffer`,
   allOn: 'Alles an',
   allOff: 'Alles aus',
+  on: 'An',
+  off: 'Aus',
   speed: 'Zeitlupe',
   speedFull: 'Echtzeit',
   speedOf: (f: number) => `${f.toFixed(2).replace('.', ',')}×`,
   timeline: 'Was beim letzten Treffer passiert ist',
   timelineEmpty: 'Noch kein Treffer. Leertaste drücken.',
-  lanes: { punch: 'Schlag', hitstop: 'Hitstop', shake: 'Shake', dummy: 'Puppe' },
+  lanes: { punch: 'Schlag', hitstop: 'Hitstop', shake: 'Shake', dummy: 'Sack' },
   contact: 'Treffer',
   ms: 'ms',
   toggles: {
@@ -37,7 +40,7 @@ const de = {
     },
     squash: {
       name: 'Squash & Stretch',
-      what: 'Kämpfer und Puppe verformen sich im Moment des Treffers, wie im Zeichentrick.',
+      what: 'Boxer und Sack verformen sich im Moment des Treffers, der Sack bekommt eine Delle.',
     },
     hitstop: {
       name: 'Hitstop',
@@ -48,20 +51,20 @@ const de = {
       what: 'Die Kamera zittert mit abklingendem „Trauma“, nicht mit zufälligem Wackeln.',
     },
     particles: {
-      name: 'Funken',
-      what: 'Sechzehn Partikel fliegen aus dem Treffer und fallen mit Schwerkraft.',
+      name: 'Spritzer',
+      what: 'Sechzehn Tuschespritzer fliegen aus dem Treffer und fallen mit Schwerkraft.',
     },
     flash: {
-      name: 'Aufblitzen',
-      what: 'Die Puppe blitzt weiß auf, ein Ring breitet sich vom Treffer aus.',
+      name: 'Negativ',
+      what: 'Die ersten Frames nach dem Treffer sind im Negativ gedruckt, dazu ein Einschlagstern.',
     },
     knockback: {
       name: 'Rückstoß',
-      what: 'Die Puppe kippt weit zurück und federt aus, statt nur zu zucken.',
+      what: 'Der Sack schwingt weit an der Kette aus, statt nur zu zucken.',
     },
     trail: {
-      name: 'Schweif',
-      what: 'Die Faust zieht eine kurze Spur und macht die Bewegung lesbar.',
+      name: 'Speedlines',
+      what: 'Striche hinter der Faust machen die Bewegung lesbar.',
     },
     zoom: {
       name: 'Punch-Zoom',
@@ -69,7 +72,7 @@ const de = {
     },
     sound: {
       name: 'Ton',
-      what: 'Whoosh beim Schlag, Wumms beim Treffer, im Browser synthetisiert.',
+      what: 'Whoosh beim Schlag, dumpfer Treffer, im Browser synthetisiert. Dazu das Geräusch als Schriftzug.',
     },
   } satisfies Record<ToggleId, ToggleText>,
   source: 'Quellcode',
@@ -79,20 +82,23 @@ const de = {
 export type Strings = typeof de
 
 const en: Strings = {
-  claim: 'Game feel, one switch at a time.',
+  claim: 'Game feel, one switch at a time',
   intro:
-    'One punch on a training dummy. Every switch on the right is a trick games use to make a hit feel like something. Start with everything off, then add one at a time.',
+    'One punch on a heavy bag. Every switch on the right is a trick games use to make a hit feel like something. Start with everything off, then add one at a time.',
+  stageLabel: 'Boxer and heavy bag',
   punch: 'Punch',
   hint: 'Space, or click the stage',
   hits: (n: number) => `${n} ${n === 1 ? 'hit' : 'hits'}`,
   allOn: 'All on',
   allOff: 'All off',
+  on: 'On',
+  off: 'Off',
   speed: 'Slow motion',
   speedFull: 'Real time',
   speedOf: (f: number) => `${f.toFixed(2)}×`,
   timeline: 'What happened on the last hit',
   timelineEmpty: 'No hit yet. Press space.',
-  lanes: { punch: 'Punch', hitstop: 'Hitstop', shake: 'Shake', dummy: 'Dummy' },
+  lanes: { punch: 'Punch', hitstop: 'Hitstop', shake: 'Shake', dummy: 'Bag' },
   contact: 'Contact',
   ms: 'ms',
   toggles: {
@@ -102,7 +108,7 @@ const en: Strings = {
     },
     squash: {
       name: 'Squash & stretch',
-      what: 'Fighter and dummy deform at the moment of impact, cartoon style.',
+      what: 'Boxer and bag deform at the moment of impact; the bag takes a dent.',
     },
     hitstop: {
       name: 'Hitstop',
@@ -113,20 +119,20 @@ const en: Strings = {
       what: 'The camera shakes with decaying "trauma" instead of random jitter.',
     },
     particles: {
-      name: 'Sparks',
-      what: 'Sixteen particles burst from the hit and fall under gravity.',
+      name: 'Spatter',
+      what: 'Sixteen ink spatters burst from the hit and fall under gravity.',
     },
     flash: {
-      name: 'Flash',
-      what: 'The dummy flashes white and a ring expands from the point of contact.',
+      name: 'Negative',
+      what: 'The first frames after contact print in negative, with an impact star.',
     },
     knockback: {
       name: 'Knockback',
-      what: 'The dummy tips far back and springs out instead of twitching.',
+      what: 'The bag swings far out on its chain instead of twitching.',
     },
     trail: {
-      name: 'Trail',
-      what: 'The fist leaves a short smear that makes the motion readable.',
+      name: 'Speed lines',
+      what: 'Strokes behind the fist make the motion readable.',
     },
     zoom: {
       name: 'Punch zoom',
@@ -134,7 +140,7 @@ const en: Strings = {
     },
     sound: {
       name: 'Sound',
-      what: 'Whoosh on the swing, thump on the hit, synthesized in the browser.',
+      what: 'Whoosh on the swing, thump on the hit, synthesized in the browser. Plus the sound, lettered on stage.',
     },
   },
   source: 'Source',

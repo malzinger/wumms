@@ -32,7 +32,8 @@ export interface Particle {
   age: number
   ttl: number
   size: number
-  hue: number
+  /** Spot colour instead of ink. */
+  red: boolean
 }
 
 export type EventKind = 'windup' | 'contact' | 'hitstop_end' | 'shake_settled' | 'dummy_settled'
@@ -74,15 +75,17 @@ export const TIMING = {
   hitstop: 85,
 }
 
-/** Where things sit on the 900 x 500 stage. */
+/** Where things sit on the 900 x 500 stage. The bag hangs from a pivot above the frame. */
 export const STAGE = {
   w: 900,
   h: 500,
   floor: 400,
-  fighterX: 290,
-  dummyX: 600,
-  bagLength: 230,
+  fighterX: 380,
+  dummyX: 560,
   bagRadius: 46,
+  bagTop: 112,
+  bagBottom: 334,
+  pivotY: -60,
 }
 
 export function createState(): State {
@@ -265,16 +268,20 @@ function contact(s: State, toggles: Toggles, rng: () => number): void {
         age: 0,
         ttl: 320 + rng() * 380,
         size: 3 + rng() * 5,
-        hue: rng() < 0.7 ? 46 : 18,
+        red: rng() < 0.35,
       })
     }
   }
 }
 
+/** The punching arm's shoulder; the whole upper body moves forward with the lean. */
+export function shoulderPosition(s: State): { x: number; y: number } {
+  return { x: STAGE.fighterX + 14 + s.fighter.lean * 30, y: STAGE.floor - 150 }
+}
+
 /** Fist position in stage coordinates, derived from the arm extension. */
 export function fistPosition(s: State): { x: number; y: number } {
-  const shoulderX = STAGE.fighterX + 26 + s.fighter.lean * 10
-  const shoulderY = STAGE.floor - 150
-  const reach = STAGE.dummyX - STAGE.bagRadius - 8 - shoulderX
-  return { x: shoulderX + 30 + s.fighter.armExt * (reach - 30), y: shoulderY + 6 }
+  const sh = shoulderPosition(s)
+  const reach = STAGE.dummyX - STAGE.bagRadius - 8 - sh.x
+  return { x: sh.x + 40 + s.fighter.armExt * (reach - 40), y: sh.y + 8 }
 }

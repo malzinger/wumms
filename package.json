@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Game feel, switch by switch: one punch on a training dummy, and toggles for hitstop, screen shake, squash and stretch, particles, flash, trails and synthesized sound, with slow motion and a frame timeline of what happened.",
+  "description": "Game feel, switch by switch: one punch on a heavy bag, drawn in ink on newsprint, with toggles for hitstop, screen shake, squash and stretch, spatter, a negative impact frame, speed lines and synthesized sound, plus slow motion and a frame timeline.",
   "author": "Friedrich Malz",
   "license": "MIT",
   "engines": {
@@ -21,8 +21,9 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@fontsource-variable/space-grotesk": "^5.3.0",
-    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource-variable/archivo": "^5.3.0",
+    "@fontsource-variable/big-shoulders-display": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },

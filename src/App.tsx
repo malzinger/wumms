@@ -141,8 +141,8 @@ export function App() {
     <div className="app">
       <header className="masthead">
         <div className="brand">
-          <span className="wordmark">Wumms</span>
-          <span className="claim">{t.claim}</span>
+          <h1 className="wordmark">Wumms</h1>
+          <p className="claim">{t.claim}</p>
         </div>
         <div className="tools">
           <div className="seg" role="group" aria-label="Sprache / Language">
@@ -162,12 +162,7 @@ export function App() {
         <section className="arena">
           <p className="intro">{t.intro}</p>
           <div className="stage" ref={wrap}>
-            <canvas
-              ref={canvas}
-              role="img"
-              aria-label="Fighter and training dummy"
-              onPointerDown={doPunch}
-            />
+            <canvas ref={canvas} role="img" aria-label={t.stageLabel} onPointerDown={doPunch} />
             <div className="stage-hud">
               <span className="hits">{t.hits(hits)}</span>
               <span className="hint">{t.hint}</span>
@@ -220,7 +215,9 @@ export function App() {
                     <b>{t.toggles[id].name}</b>
                     <span>{t.toggles[id].what}</span>
                   </span>
-                  <span className="switch" aria-hidden="true" />
+                  <span className="state" aria-hidden="true">
+                    {toggles[id] ? t.on : t.off}
+                  </span>
                 </label>
               </li>
             ))}
