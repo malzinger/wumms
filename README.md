@@ -4,6 +4,8 @@ Game feel, one switch at a time. A fighter throws one punch at a training dummy,
 
 **Live demo:** https://malzinger.github.io/wumms/
 
+![Fighter and training dummy, ten switches on the right](docs/hero.png)
+
 ## The switches
 
 | Switch           | What it does                                                                  |
